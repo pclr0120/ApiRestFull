@@ -1,0 +1,10 @@
+Instrucciones
+-Instalar node js
+1.-npm install 
+2.- crear .env con la siguientes variables 
+HOST=localhost
+usuario="root"
+PASS=123
+DATABASE= Prueba
+
+3.- Inciar con node index.js
