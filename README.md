@@ -1,1 +1,1 @@
-Base inical para desarrollo de api rest full con token  y mysql
+Base inicial para desarrollo de api rest full con token  y mysql
