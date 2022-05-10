@@ -1,10 +1,10 @@
 'use strict'
-const services = require('../services')
+const services = require('../middlewares/index')
 
 function isAuth(req, res, next) {
   if (!req.headers.authorization) {
-    return res.status(403).send({
-      message: 'No tienes autorización'
+    return res.status(403).send({status:'INVALID_TOKEN',
+      message: 'the json web token in authorization header is invalid'
     })
   }
 
