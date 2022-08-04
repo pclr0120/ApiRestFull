@@ -1,22 +1,23 @@
-'use strict'
-const services = require('../middlewares/index')
+'use strict';
+const services = require('../middlewares/index');
 
 function isAuth(req, res, next) {
   if (!req.headers.authorization) {
-    return res.status(403).send({status:'INVALID_TOKEN',
-      message: 'the json web token in authorization header is invalid'
-    })
+    return res
+      .status(403)
+      .send({ status: 'INVALID_TOKEN', message: 'the json web token in authorization header is invalid' });
   }
 
-  const token = req.headers.authorization.split(' ')[1]
-  services.decodeToken(token)
-    .then(response => {
-      req.user = response
-      next()
+  const token = req.headers.authorization.split(' ')[1];
+  services
+    .decodeToken(token)
+    .then((response) => {
+      req.user = response;
+      next();
     })
-    .catch(response => {
-      res.status(response.status)
-    })
+    .catch((response) => {
+      res.status(response.status);
+    });
 }
 
-module.exports = isAuth
+module.exports = isAuth;

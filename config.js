@@ -1,22 +1,20 @@
 const mysql = require('mysql');
+const env = require('dotenv');
 
-require('dotenv').config();
-
-
-serverConfig={
-  port: process.env.PORT_API || 3003,
-   SECRET_TOKEN: 'miclavedecode'
-}
-
-console.log(process.env);
-connection = mysql.createConnection({
-  host:  process.env.HOST || "localhost",
-  user: process.env.USER_DB || "root",
-  port: process.env.PORT || 3306,
-  password: process.env.PASS || "123",
-  database: process.env.DB || "db_master"
+const serverConfig = {
+  port: env.PORT_API || 3003,
+  SECRET_TOKEN: 'miclavedecode',
+};
+console.log(env);
+const connection = mysql.createConnection({
+  host: env.HOST || 'localhost',
+  user: env.USER_DB || 'root',
+  port: env.PORT_BD || 3306,
+  password: env.PASS || '123',
+  database: env.DB || 'db_master',
 });
 
-module.exports= {
-  serverConfig,connection
-}
+module.exports = {
+  serverConfig,
+  connection,
+};

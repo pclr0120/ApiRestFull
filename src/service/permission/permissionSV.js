@@ -5,18 +5,16 @@ const routerPermission = express.Router();
 
 //#region routes
 const getEndpointAddress = '/permission';
-routerPermission.get(getEndpointAddress + '/get',auth, getPermission);
-console.log("permissionSV Working");
+routerPermission.get(getEndpointAddress + '/get', auth, getPermission);
+console.log('permissionSV Working');
 //#endregion
 
-
 function getPermission(req, res) {
-    permissionDBV.get((err, data) => {
+  permissionDBV.get((err, data) => {
     res.status(200).send({
-      data
+      data,
     });
   });
-};
+}
 
-module.exports =
-routerPermission
+module.exports = routerPermission;

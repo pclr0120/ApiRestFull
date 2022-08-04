@@ -1,6 +1,6 @@
-const config = require("../../../config");
+const config = require('../../../config');
 const connection = config.connection;
-const service = require("../../middlewares/index");
+//const service = require('../../middlewares/index');
 
 function get(callback) {
   if (connection) {
@@ -14,12 +14,11 @@ function get(callback) {
   }
 }
 
-
 module.exports = {
-  get
+  get,
 };
 
 //#region query
-  var  QUERY_SELECT_USERS="SELECT * FROM module";
+var QUERY_SELECT_USERS = 'SELECT * FROM module';
 
 //#endregion

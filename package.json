@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.{js,md}\"",
+    "lint:fix": "eslint --fix ./src",
+    "precommit": "pretty-quick \"src/**/*.js\" --staged --verbose && eslint \"src/**/*.js\" --quiet"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
   },
   "author": "Pablo Cesar Leyva Ramirez",
   "license": "MIT",
@@ -21,6 +29,10 @@
     "moment": "^2.16.0"
   },
   "devDependencies": {
-    "nodemon": "^1.10.2"
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "nodemon": "^1.10.2",
+    "prettier": "2.6.2"
   }
 }
